@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "LeftMenuView.h"
+#import "HeadCell.h"
 
-@interface ViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate, LeftMenuDelegate>
+@interface ViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate,HeadCellProtocol,LeftMenuDelegate>
 
 @end

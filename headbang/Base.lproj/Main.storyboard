@@ -18,7 +18,7 @@
                                 <color key="backgroundColor" red="0.0" green="0.4839373911321081" blue="1" alpha="0.46000000000000002" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" red="0.54762957219999997" green="0.4256327983" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="lNU-Ko-nAZ">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="lNU-Ko-nAZ" customClass="HeadImage">
                                 <rect key="frame" x="57" y="66" width="119" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>

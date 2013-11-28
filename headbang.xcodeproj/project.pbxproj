@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CFF38C39184747620053138A /* HeadImage.m in Sources */ = {isa = PBXBuildFile; fileRef = CFF38C38184747620053138A /* HeadImage.m */; };
 		CFF9C4CD18447C870096DBC6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFF9C4CC18447C870096DBC6 /* Foundation.framework */; };
 		CFF9C4CF18447C870096DBC6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFF9C4CE18447C870096DBC6 /* CoreGraphics.framework */; };
 		CFF9C4D118447C870096DBC6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFF9C4D018447C870096DBC6 /* UIKit.framework */; };
@@ -49,6 +50,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CFF38C37184747620053138A /* HeadImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeadImage.h; sourceTree = "<group>"; };
+		CFF38C38184747620053138A /* HeadImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeadImage.m; sourceTree = "<group>"; };
 		CFF9C4C918447C870096DBC6 /* headbang.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = headbang.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFF9C4CC18447C870096DBC6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		CFF9C4CE18447C870096DBC6 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -158,6 +161,8 @@
 				CFF9C5231844C12C0096DBC6 /* LeftMenuView.xib */,
 				CFF9C5251844C35A0096DBC6 /* LeftMenuView.h */,
 				CFF9C5261844C35A0096DBC6 /* LeftMenuView.m */,
+				CFF38C37184747620053138A /* HeadImage.h */,
+				CFF38C38184747620053138A /* HeadImage.m */,
 				CFF9C4E418447C870096DBC6 /* Images.xcassets */,
 				CFF9C4D318447C870096DBC6 /* Supporting Files */,
 			);
@@ -338,6 +343,7 @@
 				CFF9C4E318447C870096DBC6 /* ViewController.m in Sources */,
 				CFF9C4DD18447C870096DBC6 /* AppDelegate.m in Sources */,
 				CFF9C4D918447C870096DBC6 /* main.m in Sources */,
+				CFF38C39184747620053138A /* HeadImage.m in Sources */,
 				CFF9C51E1844902D0096DBC6 /* HeadCell.m in Sources */,
 				CFF9C5271844C35A0096DBC6 /* LeftMenuView.m in Sources */,
 			);
@@ -548,6 +554,7 @@
 				CFF9C4FD18447C870096DBC6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CFF9C4FE18447C870096DBC6 /* Build configuration list for PBXNativeTarget "headbangTests" */ = {
 			isa = XCConfigurationList;
@@ -556,6 +563,7 @@
 				CFF9C50018447C870096DBC6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

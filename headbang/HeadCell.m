@@ -9,34 +9,37 @@
 #import "HeadCell.h"
 
 @interface HeadCell ()
+
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
+
 
 @end
 
 @implementation HeadCell
 
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
-{
-    //NSLog(@"Hello");
+- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        // Initialization code
         self = [[[NSBundle mainBundle] loadNibNamed:@"headPickerCell" owner:self options:nil] objectAtIndex:0] ;
+        UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapDetected:)];
+        tapRecognizer.numberOfTapsRequired = 1;
+        [self addGestureRecognizer:tapRecognizer];
     }
-    
-
     return self;
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated
-{
-    [super setSelected:selected animated:animated];
+#pragma mark Gesture Functions
+- (void)tapDetected:(UITapGestureRecognizer *)tapRecognizer{
+    [self.delegate addHeadImage:self];
+}
 
-    // Configure the view for the selected state
+#pragma mark Image Functions
+- (void)setSelected:(BOOL)selected animated:(BOOL)animated{
+    [super setSelected:selected animated:animated];
 }
 
 -(void)imageSet:(UIImage *)image{
+    self.img = image;
     [self.imageView setImage:image];
 }
-
 @end

@@ -9,9 +9,10 @@
 #import "ViewController.h"
 #import "HeadCell.h"
 #import "LeftMenuView.h"
+#import "HeadImage.h"
 
 @interface ViewController ()
-@property (weak, nonatomic) IBOutlet UIImageView *headImageView;
+@property (strong, nonatomic) IBOutlet HeadImage *headImageView;
 @property (weak, nonatomic) IBOutlet UIImageView *originalImageView;
 - (IBAction)selectOriginal:(id)sender;
 - (IBAction)selectHead:(id)sender;
@@ -48,6 +49,8 @@ CGRect INITIAL_FRAME_MENU;
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     
+    self.headImageView = [[HeadImage alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
+    [self.view addSubview:self.headImageView];
     
     self.leftArrowImage.transform = CGAffineTransformRotate(self.headImageView.transform, 1.47);
     self.rightArrowImage.transform = CGAffineTransformRotate(self.headImageView.transform, 1.47);
@@ -61,24 +64,6 @@ CGRect INITIAL_FRAME_MENU;
     self.headImageView.userInteractionEnabled = YES;
     self.originalImageView.userInteractionEnabled = YES;
     
-    UIPanGestureRecognizer *panRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panDetected:)];
-    [self.headImageView addGestureRecognizer:panRecognizer];
-    
-    UIPinchGestureRecognizer *pinchRecognizer = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(pinchDetected:)];
-    [self.headImageView addGestureRecognizer:pinchRecognizer];
-    
-    UIRotationGestureRecognizer *rotationRecognizer = [[UIRotationGestureRecognizer alloc] initWithTarget:self action:@selector(rotationDetected:)];
-    [self.headImageView addGestureRecognizer:rotationRecognizer];
-    
-    UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapDetected:)];
-    tapRecognizer.numberOfTapsRequired = 1;
-    [self.headImageView addGestureRecognizer:tapRecognizer];
-    [self.originalImageView addGestureRecognizer:tapRecognizer];
-
-    
-   
-    
-   
     self.table.frame = CGRectMake(self.table.frame.origin.x + 100, self.table.frame.origin.y, self.table.frame.size.width, self.table.frame.size.height);
     
     
@@ -99,43 +84,6 @@ CGRect INITIAL_FRAME_MENU;
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-
-
-- (void)panDetected:(UIPanGestureRecognizer *)panRecognizer
-{
-    CGPoint translation = [panRecognizer translationInView:self.view];
-    CGPoint imageViewPosition = self.headImageView.center;
-    imageViewPosition.x += translation.x;
-    imageViewPosition.y += translation.y;
-    
-    self.headImageView.center = imageViewPosition;
-    [panRecognizer setTranslation:CGPointZero inView:self.view];
-}
-
-- (void)pinchDetected:(UIPinchGestureRecognizer *)pinchRecognizer
-{
-    CGFloat scale = pinchRecognizer.scale;
-    self.headImageView.transform = CGAffineTransformScale(self.headImageView.transform, scale, scale);
-    pinchRecognizer.scale = 1.0;
-}
-
-- (void)rotationDetected:(UIRotationGestureRecognizer *)rotationRecognizer
-{
-    CGFloat angle = rotationRecognizer.rotation;
-    self.headImageView.transform = CGAffineTransformRotate(self.headImageView.transform, angle);
-    rotationRecognizer.rotation = 0.0;
-}
-
-- (void)tapDetected:(UITapGestureRecognizer *)tapRecognizer
-{
-    [UIView animateWithDuration:1 animations:^{
-//        self.headImageView.center = CGPointMake(CGRectGetMidX(self.view.bounds), CGRectGetMidY(self.view.bounds));
-//        self.headImageView.transform = CGAffineTransformIdentity;
-        
-        self.table.frame = INITIAL_FRAME ;
-    }];
 }
 
 - (IBAction)selectOriginal:(id)sender {
@@ -167,6 +115,8 @@ CGRect INITIAL_FRAME_MENU;
     
     HeadCell * cell = [[HeadCell alloc]  initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
     [cell imageSet: [UIImage imageNamed:[headImageArray objectAtIndex:indexPath.row]]];
+    
+    cell.delegate = self;
     
     return cell;
 }
@@ -283,5 +233,12 @@ CGRect INITIAL_FRAME_MENU;
     [UIView animateWithDuration:1 animations:^{
         self.leftMenuView.frame = CGRectMake(INITIAL_FRAME_MENU.origin.x+150, INITIAL_FRAME_MENU.origin.y, INITIAL_FRAME_MENU.size.width, INITIAL_FRAME_MENU.size.height);
     }];
+}
+
+-(void)addHeadImage:(HeadCell*)currentCell{
+    NSLog(@"her 2133 e");
+    HeadImage *newHeadImage = [[HeadImage alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
+    [newHeadImage setImage:currentCell.img];
+    [self.view addSubview:newHeadImage];
 }
 @end
